@@ -1,0 +1,11 @@
+["Graphics"]
+{
+    "RenderMode"="1"
+    "InterpoMode"="0"
+    "Antialiasing"="false"
+}
+["TextureCaching"]
+{
+    "CachingEnabled"="false"
+    "TextureCacheSize"="512"
+}

@@ -1,0 +1,12 @@
+["GameInfo"]
+{
+	"TickSpeed"="120"
+}
+
+["Window"]
+{
+	"Title"="Test"
+	"Width"="500"
+	"Height"="500"
+	"Resizable"="false"
+}
