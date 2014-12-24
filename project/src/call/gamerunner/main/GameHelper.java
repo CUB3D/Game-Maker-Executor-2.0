@@ -3,7 +3,6 @@ package call.gamerunner.main;
 import java.util.ArrayList;
 import java.util.List;
 
-import call.game.entitys.BasicEntity;
 import call.game.image.Sprite;
 
 

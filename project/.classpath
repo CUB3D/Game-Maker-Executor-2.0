@@ -6,5 +6,6 @@
 	<classpathentry kind="lib" path="E:/Development/Programing/Java/Lib&apos;s/Utils.jar"/>
 	<classpathentry kind="lib" path="E:/Development/Programing/Java/Lib&apos;s/Unknown 3.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jogl-2.0"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Unknown - 3"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -18,7 +18,7 @@ import javax.media.opengl.GL2;
 import call.file.api.CFile;
 import call.file.layout.Element;
 import call.file.layout.Value;
-import call.game.entitys.BasicEntity;
+import call.game.entitys.BaseEntity;
 import call.game.image.AnimatedSprite;
 import call.game.image.Animation;
 import call.game.image.BaseSprite;
@@ -29,6 +29,7 @@ import call.game.main.GameSettings;
 import call.game.main.Unknown;
 import call.game.utils.AnimationIO;
 
+@Define("EntryPoint")
 public class GameRunnerMain
 {
 	public static List<SpriteWrapper> sprites = new ArrayList<SpriteWrapper>();
@@ -38,7 +39,11 @@ public class GameRunnerMain
 
 	public GameRunnerMain()
 	{
-		// load sprites
+	}
+	
+	@Define("Init")
+	public void load()
+	{
 		File file = new File("Test.game");
 
 		try
@@ -58,9 +63,9 @@ public class GameRunnerMain
 					int x = e.getValue("X").getInt();
 					int y = e.getValue("Y").getInt();
 					String imgname = e.getValue("Image").getValue();
-					String name = e.getValue("Name").getValue("NULL");
+					String name = e.getValue("Name").getValue();
 					boolean prefab = e.getValue("Prefab").getBoolean();
-					String tag = e.getValue("Tag").getValue("NULL");
+					String tag = e.getValue("Tag").getValue();
 
 					ZipEntry image = game.getEntry("Sprites/" + imgname);
 
@@ -87,12 +92,13 @@ public class GameRunnerMain
 					int x = e.getValue("X").getInt();
 					int y = e.getValue("Y").getInt();
 					String imgname = e.getValue("Image").getValue();
-					String name = e.getValue("Name").getValue("NULL");
+					String name = e.getValue("Name").getValue();
 					boolean prefab = e.getValue("Prefab").getBoolean();
 					boolean animated = e.getValue("Animation").getBoolean();
-					int id = e.getValue("ID").getInt(0);
-					String tag = e.getValue("Tag").getValue("NULL");
-
+					String id = e.getValue("ID").getValue();
+					String tag = e.getValue("Tag").getValue();
+					int health = e.getValue("Health").getInt();
+					
 					ZipEntry image = game.getEntry("Entitys/" + imgname);
 
 					BaseSprite s = null;
@@ -112,7 +118,7 @@ public class GameRunnerMain
 						s = new AnimatedSprite(x, y, ani);
 					}
 
-					EntityWrapper sw = new EntityWrapper(new BasicEntity(s, id), prefab, name, tag);
+					EntityWrapper sw = new EntityWrapper(new BasicEntity(s, health, id), prefab, name, tag);
 
 					entitys.add(sw);
 				}
@@ -187,7 +193,7 @@ public class GameRunnerMain
 		for(EntityWrapper s : entitys)
 			if(!s.isPrefab())
 			{
-				BasicEntity e = s.getEntity();
+				BaseEntity e = s.getEntity();
 				
 				e.render();
 				

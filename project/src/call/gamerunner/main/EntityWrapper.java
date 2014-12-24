@@ -1,15 +1,15 @@
 package call.gamerunner.main;
 
-import call.game.entitys.BasicEntity;
+import call.game.entitys.BaseEntity;
 
 public class EntityWrapper
 {
-	private BasicEntity sprite;
+	private BaseEntity sprite;
 	private boolean prefab;
 	private String name;
 	private String tag;
 	
-	public EntityWrapper(BasicEntity s, boolean prefab, String name, String tag)
+	public EntityWrapper(BaseEntity s, boolean prefab, String name, String tag)
 	{
 		this.sprite = s;
 		this.prefab = prefab;
@@ -17,7 +17,7 @@ public class EntityWrapper
 		this.tag = tag;
 	}
 	
-	public BasicEntity getEntity()
+	public BaseEntity getEntity()
 	{
 		return sprite;
 	}
